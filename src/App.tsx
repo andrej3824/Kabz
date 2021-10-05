@@ -1,23 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./Accordion";
+import OnOff from "./components/onOff";
+import UncontrolledAccordion from "./components/UncontrolledAccordion";
+import {Rating, RatingValueType} from "./components/Rating";
+import {UncontrolledRating} from "./components/UncontrolledRating";
 
 function App() {
-  return (
-    <div>
-      <Accordion titleValue={'Menu'} collapsed={true} />
-      <Accordion titleValue={'users'} collapsed={false} />
-    </div>
-  );
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+
+    return (
+        <div className={"App"}>
+
+            <OnOff/>
+            <UncontrolledAccordion titleValue={'Menu'}/>
+            <UncontrolledRating value={0}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+        </div>
+    );
 }
 
-type PageTitlePropsType = {
-  title: string
-}
-
-function PageTitle(props: PageTitlePropsType) {
-  return <h1>{props.title}</h1>
-}
 
 export default App;
