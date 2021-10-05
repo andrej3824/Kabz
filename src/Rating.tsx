@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 
-type RatingPropsType = {
+type RatingPropsType =  {
     value: 1 | 2 | 3 | 4 | 5
 }
 
